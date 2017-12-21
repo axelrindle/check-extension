@@ -14,9 +14,9 @@ yarn add check-extension
 ```javascript
 const checkExtension = require("check-extension");
 
-var isJsFile = checkExtension("myFile.js", "js"); // => true
-var isJsonFile = checkExtension("myFile.js", "json"); // => false
-var isMarkdownFile = checkExtension("README.md", ["md", "markdown"]); // => true
+var isJsFile = checkExtension("myFile.js", ".js"); // => true
+var isJsonFile = checkExtension("myFile.js", ".json"); // => false
+var isMarkdownFile = checkExtension("README.md", [".md", ".markdown"]); // => true
 ```
 
 ## API
@@ -28,8 +28,6 @@ var isMarkdownFile = checkExtension("README.md", ["md", "markdown"]); // => true
 | ---- | ---- | ----------- |
 | file | string | The path of the file to check. |
 | extensions | string/array | One or more allowed extensions. |
-
-**Note**: When supplying *extensions*, leave out the **dot** in front of the extension!
 
 #### Returns
 `true` if the extensions matched, `false` otherwise.
