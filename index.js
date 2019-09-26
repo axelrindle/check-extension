@@ -2,7 +2,7 @@
 const path = require('path');
 
 // invalid extensions parameter supplied
-var invalidExtensionsParameter = (param) => {
+const invalidExtensionsParameter = param => {
   throw new Error("Invalid extension parameter! Wanted string or array, but got " + typeof param);
 };
 
@@ -14,23 +14,24 @@ var invalidExtensionsParameter = (param) => {
  * @returns true if the extensions matched, false otherwise.
  */
 module.exports = checkExtension = (file, extensions) => {
-  file = path.resolve(file); // resolve absoulte file path
-  var ext = path.extname(file); // get extension
+  file = path.resolve(file);
+  var ext = path.extname(file);
 
-  if (typeof extensions === "string") { // we got a string here
-    // does the file extension match the given extension?
-    if (extensions !== ext) return false;
+  // only one extension is allowed
+  if (typeof extensions === "string") {
+    return extensions === ext;
   }
-  else if (typeof extensions === "object") { // not a string
-    if (Array.isArray(extensions)) { // make sure we have an array
-
-      // does the array contain the extension of the file?
-      if (extensions.indexOf(ext) === -1) return false;
-    } else invalidExtensionsParameter(extensions); // we got something else here
+  
+  // multiple extensions are allowed
+  else if (Array.isArray(extensions)) {
+    return extensions.indexOf(ext) !== -1;
   }
-  // we got something else here
+  
+  // no extensions is expected
+  else if (!extensions) {
+	return ext === '';
+  }
+  
+  // invalid options
   else invalidExtensionsParameter(extensions);
-
-  // default case
-  return true;
 };
