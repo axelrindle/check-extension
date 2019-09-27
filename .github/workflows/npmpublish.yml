@@ -12,7 +12,11 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 10
-      - run: npm test
+      - run: |
+        npm install
+        npm test
+      - env:
+        CI: true
 
   publish-npm:
     needs: build
