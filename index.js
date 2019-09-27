@@ -21,17 +21,17 @@ module.exports = checkExtension = (file, extensions) => {
   if (typeof extensions === "string") {
     return extensions === ext;
   }
-  
+
   // multiple extensions are allowed
   else if (Array.isArray(extensions)) {
     return extensions.indexOf(ext) !== -1;
   }
-  
+
   // no extensions is expected
   else if (!extensions) {
-	return ext === '';
+	  return ext === '';
   }
-  
+
   // invalid options
   else invalidExtensionsParameter(extensions);
 };
