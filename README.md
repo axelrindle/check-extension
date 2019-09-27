@@ -1,4 +1,4 @@
-![ci status](https://github.com/axelrindle/check-extension/workflows/Node%20CI/badge.svg)
+![ci status](https://github.com/axelrindle/check-extension/workflows/Test/badge.svg)
 
 # check-extension
 > Check whether a file has a given extension.
