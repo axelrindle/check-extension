@@ -1,6 +1,6 @@
 {
   "name": "check-extension",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Check whether a file has a given extension.",
   "main": "index.js",
   "repository": "https://github.com/axelrindle/check-extension",
