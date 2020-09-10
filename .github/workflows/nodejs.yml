@@ -4,14 +4,17 @@ on:
   push:
     branches:
     - master
+  pull_request:
+    branches:
+    - master
 
 jobs:
   test:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: [10.x, 12.x, 14.x]
 
     steps:
     - uses: actions/checkout@v1
@@ -21,7 +24,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: npm install and test
       run: |
-        npm install
+        npm ci
         npm test
-      env:
-        CI: true
