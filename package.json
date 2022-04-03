@@ -4,7 +4,7 @@
   "description": "Check whether a file has a given extension.",
   "main": "index.js",
   "repository": "https://github.com/axelrindle/check-extension",
-  "author": "Axel Rindle <axel.rindle@gmx.de>",
+  "author": "Axel Rindle <mail@axelrindle.de>",
   "license": "MIT",
   "devDependencies": {
     "mocha": "^7.0.0"
